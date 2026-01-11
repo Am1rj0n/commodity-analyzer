@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>COMMODITY PRICE ANALYZER</h1>
+        <p>Monte Carlo Simulation (15,000 runs)</p>
+    </header>
+
+    <main>
+        <section id="input-section">
+            <h2>Select Commodity</h2>
+            
+            <div class="input-group">
+                <label for="commodity">Choose:</label>
+                <select id="commodity">
+                    <option value="COPPER">Copper</option>
+                    <option value="WTI">Crude Oil (WTI)</option>
+                    <option value="ALUMINUM">Aluminum</option>
+                </select>
+            </div>
+
+            <button id="run-btn">RUN SIMULATION</button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Processing...
+            </div>
+
+            <div class="error" id="error"></div>
+        </section>
+
+        <section id="results-section" class="results">
+          <h2>Price Distribution (15,000 simulations)</h2>
+      
+          <!-- Stats summary -->
+          <div class="stats">
+              <p><span class="label">Current Price:</span> <span id="current-price">$0.00</span></p>
+              <p><span class="label">Expected Price (30 days):</span> <span id="expected-price">$0.00</span></p>
+              <p><span class="label">Best Case (95th):</span> <span id="best-case">$0.00</span></p>
+              <p><span class="label">Worst Case (5th):</span> <span id="worst-case">$0.00</span></p>
+          </div>
+      
+          <!-- Interactive histogram -->
+          <div id="chart-container"></div>
+      
+          <!-- Tooltip element -->
+          <div id="tooltip" style="
+              position:absolute;
+              display:none;
+              background:#0f0;
+              color:#000;
+              padding:5px;
+              border-radius:3px;
+              font-family:'Courier New', monospace;
+              font-size:12px;
+              pointer-events:none;
+          "></div>
+      </section>
+      
+    </main>
+
+    <footer>
+        <p>Data: <a href="https://www.alphavantage.co/" target="_blank">Alpha Vantage</a></p>
+        <p>Created by Amirjon Sadikov</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
